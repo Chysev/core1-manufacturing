@@ -1,0 +1,225 @@
+
+
+GET https://backend-admin.jjm-manufacturing.com/api/finance/get
+Content-Type: application/json
+Authorization: Bearer srvcScrt4o341
+
+{
+    "service": "Core 1"
+}
+
+
+### Get Admin Session
+GET http://localhost:5000/api/admin-session
+Content-Type: application/json
+
+
+### Product Endpoints
+
+# List All Products (with related materials and work orders)
+GET http://localhost:5000/api/products/list
+# Content-Type: application/json
+
+###
+
+# Get a Product by ID
+GET http://localhost:5000/api/product/PRODUCT_ID_HERE
+Content-Type: application/json
+
+###
+
+# Create a New Product (do not include nested fields if empty)
+POST http://localhost:5000/api/product/create
+Content-Type: application/json
+
+{
+  "name": "Product A"
+}
+
+###
+
+# Update a Product
+PATCH http://localhost:5000/api/product/PRODUCT_ID_HERE
+Content-Type: application/json
+
+{
+  "name": "Updated Product A"
+}
+
+###
+
+# Delete a Product
+DELETE http://localhost:5000/api/product/PRODUCT_ID_HERE
+Content-Type: application/json
+
+### Production Schedule Endpoints
+
+# List All Production Schedules
+GET http://localhost:5000/api/prodSched/list
+Content-Type: application/json
+
+###
+
+# Get a Production Schedule by ID
+GET http://localhost:5000/api/prodSched/PROD_SCHED_ID_HERE
+Content-Type: application/json
+
+###
+
+# Create a New Production Schedule
+POST http://localhost:5000/api/prodSched/create
+Content-Type: application/json
+
+{
+  "status": "ONTIME",
+  "description": "First schedule",
+  "start": "2023-01-01T00:00:00.000Z",
+  "end": "2023-01-02T00:00:00.000Z"
+}
+
+###
+
+# Update a Production Schedule
+PATCH http://localhost:5000/api/prodSched/PROD_SCHED_ID_HERE
+Content-Type: application/json
+
+{
+  "status": "DELAYED",
+  "description": "Updated schedule",
+  "start": "2023-01-03T00:00:00.000Z",
+  "end": "2023-01-04T00:00:00.000Z"
+}
+
+###
+
+# Delete a Production Schedule
+DELETE http://localhost:5000/api/prodSched/PROD_SCHED_ID_HERE
+Content-Type: application/json
+
+### Work Order Endpoints
+
+# List All Work Orders
+GET http://localhost:5000/api/workOrders/list
+Content-Type: application/json
+
+###
+
+# Get a Work Order by ID
+GET http://localhost:5000/api/workOrders/WORK_ORDER_ID_HERE
+Content-Type: application/json
+
+###
+
+# Create a New Work Order
+POST http://localhost:5000/api/workOrders/create
+Content-Type: application/json
+
+{
+  "productId": "PRODUCT_ID_HERE",
+  "quantity": 100,
+  "status": "IN_PROGRESS",
+  "assignedTo": "Machine B",
+  "deadline": "2025-02-07T00:00:00.000Z",
+  "productionScheduleId": "PROD_SCHED_ID_HERE"
+}
+
+###
+
+# Update a Work Order
+PATCH http://localhost:5000/api/workOrders/WORK_ORDER_ID_HERE
+Content-Type: application/json
+
+{
+  "status": "COMPLETED",
+  "quantity": 120
+}
+
+###
+
+# Delete a Work Order
+DELETE http://localhost:5000/api/workOrders/WORK_ORDER_ID_HERE
+Content-Type: application/json
+
+### Material Endpoints
+
+# List All Materials
+GET http://localhost:5000/api/materials/list
+Content-Type: application/json
+
+###
+
+# Get a Material by ID
+GET http://localhost:5000/api/materials/MATERIAL_ID_HERE
+Content-Type: application/json
+
+###
+
+# Create a New Material
+POST http://localhost:5000/api/materials/create
+Content-Type: application/json
+
+{
+  "material": "Sodium Hydroxide",
+  "quantity": 1000,
+  "unit": "kg",
+  "price": 50
+}
+
+###
+
+# Update a Material
+PATCH http://localhost:5000/api/materials/MATERIAL_ID_HERE
+Content-Type: application/json
+
+{
+  "material": "Updated Sodium Hydroxide",
+  "quantity": 1200,
+  "unit": "kg",
+  "price": 55
+}
+
+###
+
+# Delete a Material
+DELETE http://localhost:5000/api/materials/MATERIAL_ID_HERE
+Content-Type: application/json
+
+### Demand Forecast Endpoints
+
+# List All Demand Forecasts
+GET http://localhost:5000/api/forecast/list
+Content-Type: application/json
+
+###
+
+# Get a Demand Forecast by ID
+GET http://localhost:5000/api/forecast/FORECAST_ID_HERE
+Content-Type: application/json
+
+###
+
+# Create a New Demand Forecast
+POST http://localhost:5000/api/forecast/create
+Content-Type: application/json
+
+{
+  "month": "January",
+  "sales": 1000
+}
+
+###
+
+# Update a Demand Forecast
+PATCH http://localhost:5000/api/forecast/FORECAST_ID_HERE
+Content-Type: application/json
+
+{
+  "month": "January",
+  "sales": 1100
+}
+
+###
+
+# Delete a Demand Forecast
+DELETE http://localhost:5000/api/forecast/FORECAST_ID_HERE
+Content-Type: application/json
