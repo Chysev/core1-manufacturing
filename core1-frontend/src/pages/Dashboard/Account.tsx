@@ -31,7 +31,7 @@ const Account = () => {
     try {
       setIsLoading(true);
       const response = await axios.get(
-        'backend-core1.jjm-manufacturing.com/api/user-list'
+        'https://backend-core1.jjm-manufacturing.com/api/user-list'
       );
       console.log(accounts);
       setAccounts(response.data.users);

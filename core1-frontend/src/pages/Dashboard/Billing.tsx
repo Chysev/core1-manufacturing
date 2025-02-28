@@ -39,7 +39,7 @@ const Billing = () => {
     try {
       setIsLoading(true);
       const response = await axios.get(
-        'backend-core1.jjm-manufacturing.com/api/products/list'
+        'https://backend-core1.jjm-manufacturing.com/api/products/list'
       );
       setProducts(response.data);
     } catch (error) {

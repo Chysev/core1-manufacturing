@@ -69,7 +69,7 @@ const WorkOrders = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        'backend-core1.jjm-manufacturing.com/api/products/list'
+        'https://backend-core1.jjm-manufacturing.com/api/products/list'
       );
       const prods = response.data.map((p: any) => ({ id: p.id, name: p.name }));
       setProducts(prods);
@@ -81,7 +81,7 @@ const WorkOrders = () => {
   const fetchSchedules = async () => {
     try {
       const response = await axios.get(
-        'backend-core1.jjm-manufacturing.com/api/prodSched/list'
+        'https://backend-core1.jjm-manufacturing.com/api/prodSched/list'
       );
       const sch = response.data.map((s: any) => ({
         id: s.id,
@@ -97,7 +97,7 @@ const WorkOrders = () => {
     try {
       setIsLoading(true);
       const response = await axios.get(
-        'backend-core1.jjm-manufacturing.com/api/workOrders/list'
+        'https://backend-core1.jjm-manufacturing.com/api/workOrders/list'
       );
       const orders = response.data.map((order: any) => ({
         ...order,
@@ -126,7 +126,7 @@ const WorkOrders = () => {
           : undefined,
       };
       await axios.post(
-        'backend-core1.jjm-manufacturing.com/api/workOrders/create',
+        'https://backend-core1.jjm-manufacturing.com/api/workOrders/create',
         payload
       );
       showToast('Work order created successfully', 'success');

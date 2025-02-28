@@ -79,7 +79,7 @@ const Login: React.FC = () => {
     setIsLoading(true);
     try {
       const res = await axios.post(
-        'backend-core1.jjm-manufacturing.com/auth/login',
+        'https://backend-core1.jjm-manufacturing.com/auth/login',
         form
       );
       if (res) {

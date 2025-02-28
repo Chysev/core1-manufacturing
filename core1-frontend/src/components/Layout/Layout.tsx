@@ -30,7 +30,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const closeMobileSidebar = () => setIsMobileOpen(false);
 
   const handleLogout = async () => {
-    await axios.get('backend-core1.jjm-manufacturing.com/auth/logout');
+    await axios.get('https://backend-core1.jjm-manufacturing.com/auth/logout');
     navigate({ to: '/auth/login' });
   };
 

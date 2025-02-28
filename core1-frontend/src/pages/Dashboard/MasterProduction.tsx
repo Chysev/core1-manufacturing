@@ -45,7 +45,7 @@ const MasterProduction = () => {
   const fetchSchedules = async () => {
     try {
       const response = await axios.get(
-        'backend-core1.jjm-manufacturing.com/api/prodSched/list'
+        'https://backend-core1.jjm-manufacturing.com/api/prodSched/list'
       );
       setSchedules(response.data);
     } catch (error) {
@@ -69,7 +69,7 @@ const MasterProduction = () => {
       };
 
       await axios.post(
-        'backend-core1.jjm-manufacturing.com/api/prodSched/create',
+        'https://backend-core1.jjm-manufacturing.com/api/prodSched/create',
         formattedData
       );
       showToast('Schedule created successfully', 'success');

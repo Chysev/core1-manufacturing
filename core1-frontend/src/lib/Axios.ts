@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 const Axios = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: 'https://backend-core1.jjm-manufacturing.com',
   withCredentials: true,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 });
 
