@@ -57,7 +57,7 @@ const DemandForecast = () => {
     try {
       setIsLoading(true);
       const response = await axios.get(
-        'http://localhost:5000/api/forecast/list'
+        'backend-core1.jjm-manufacturing.com/api/forecast/list'
       );
       setForecasts(response.data);
     } catch (error) {
@@ -74,7 +74,10 @@ const DemandForecast = () => {
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/forecast/create', formData);
+      await axios.post(
+        'backend-core1.jjm-manufacturing.com/api/forecast/create',
+        formData
+      );
       showToast('Forecast created successfully', 'success');
       setIsCreateModalOpen(false);
       setFormData({ month: '', sales: 0 });

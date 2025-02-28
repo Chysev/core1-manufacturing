@@ -78,7 +78,10 @@ const Login: React.FC = () => {
 
     setIsLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/auth/login', form);
+      const res = await axios.post(
+        'backend-core1.jjm-manufacturing.com/auth/login',
+        form
+      );
       if (res) {
         navigate({ to: '/dashboard/production' });
       } else {

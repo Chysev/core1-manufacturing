@@ -58,7 +58,7 @@ const Materials = () => {
     try {
       setIsLoading(true);
       const response = await axios.get(
-        'http://localhost:5000/api/products/list'
+        'backend-core1.jjm-manufacturing.com/api/products/list'
       );
       setProducts(response.data);
     } catch (error) {
@@ -84,7 +84,10 @@ const Materials = () => {
           payload.materials = { create: validMaterials };
         }
       }
-      await axios.post('http://localhost:5000/api/product/create', payload);
+      await axios.post(
+        'backend-core1.jjm-manufacturing.com/api/product/create',
+        payload
+      );
       showToast('Product created successfully', 'success');
       setIsCreateModalOpen(false);
       setProductForm({ name: '', materials: [] });

@@ -30,7 +30,9 @@ const Account = () => {
   const fetchAccounts = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get('http://localhost:5000/api/user-list');
+      const response = await axios.get(
+        'backend-core1.jjm-manufacturing.com/api/user-list'
+      );
       console.log(accounts);
       setAccounts(response.data.users);
       showToast('Accounts fetched successfully', 'success');

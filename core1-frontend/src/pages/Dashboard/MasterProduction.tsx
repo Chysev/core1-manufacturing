@@ -24,7 +24,6 @@ const MasterProduction = () => {
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [selectedSchedule, setSelectedSchedule] =
     useState<ProductionSchedule | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     status: 'ONTIME' as PROD_SCHED_STATUS,
     description: '',
@@ -45,15 +44,14 @@ const MasterProduction = () => {
 
   const fetchSchedules = async () => {
     try {
-      setIsLoading(true);
       const response = await axios.get(
-        'http://localhost:5000/api/prodSched/list'
+        'backend-core1.jjm-manufacturing.com/api/prodSched/list'
       );
       setSchedules(response.data);
     } catch (error) {
       showToast('Failed to fetch schedules', 'error');
     } finally {
-      setIsLoading(false);
+      return;
     }
   };
 
@@ -71,7 +69,7 @@ const MasterProduction = () => {
       };
 
       await axios.post(
-        'http://localhost:5000/api/prodSched/create',
+        'backend-core1.jjm-manufacturing.com/api/prodSched/create',
         formattedData
       );
       showToast('Schedule created successfully', 'success');
