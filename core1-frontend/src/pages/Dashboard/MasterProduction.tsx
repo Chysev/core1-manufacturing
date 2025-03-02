@@ -91,7 +91,7 @@ const MasterProduction = () => {
     e.preventDefault();
 
     try {
-      await axios.delete(`http://localhost:5000/api/prodSched/${id}`);
+      await axios.delete('https://backend-core1.jjm-manufacturing.com/api/prodSched/${id}`);
 
       showToast('Schedule deleted successfully', 'success');
       fetchSchedules();

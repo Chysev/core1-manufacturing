@@ -93,7 +93,7 @@ const DemandForecast = () => {
     if (!selectedForecast) return;
     try {
       await axios.patch(
-        `http://localhost:5000/api/forecast/${selectedForecast.id}`,
+        'https://backend-core1.jjm-manufacturing.com/api/forecast/${selectedForecast.id}`,
         formData
       );
       showToast('Forecast updated successfully', 'success');
@@ -110,7 +110,7 @@ const DemandForecast = () => {
   const handleDelete = async (id: string, e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.delete(`http://localhost:5000/api/forecast/${id}`);
+      await axios.delete('https://backend-core1.jjm-manufacturing.com/api/forecast/${id}`);
       showToast('Forecast deleted successfully', 'success');
       fetchForecasts();
     } catch (error) {

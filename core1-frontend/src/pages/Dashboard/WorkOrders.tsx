@@ -161,7 +161,7 @@ const WorkOrders = () => {
           : undefined,
       };
       await axios.patch(
-        `http://localhost:5000/api/workOrders/${selectedWorkOrder.id}`,
+        'https://backend-core1.jjm-manufacturing.com/api/workOrders/${selectedWorkOrder.id}`,
         payload
       );
       showToast('Work order updated successfully', 'success');
@@ -185,7 +185,7 @@ const WorkOrders = () => {
   const handleDelete = async (id: string, e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.delete(`http://localhost:5000/api/workOrders/${id}`);
+      await axios.delete('https://backend-core1.jjm-manufacturing.com/api/workOrders/${id}`);
       showToast('Work order deleted successfully', 'success');
       fetchWorkOrders();
     } catch (error) {
