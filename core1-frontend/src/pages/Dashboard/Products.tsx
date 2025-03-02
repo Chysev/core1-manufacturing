@@ -115,7 +115,7 @@ const Materials = () => {
         }
       }
       await axios.patch(
-        'https://backend-core1.jjm-manufacturing.com/api/product/${selectedProduct.id}`,
+        `https://backend-core1.jjm-manufacturing.com/api/product/${selectedProduct.id}`,
         payload
       );
       showToast('Product updated successfully', 'success');
@@ -132,7 +132,9 @@ const Materials = () => {
   const handleDelete = async (id: string, e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.delete('https://backend-core1.jjm-manufacturing.com/api/product/${id}`);
+      await axios.delete(
+        `https://backend-core1.jjm-manufacturing.com/api/product/${id}`
+      );
       showToast('Product deleted successfully', 'success');
       fetchProducts();
     } catch (error) {
