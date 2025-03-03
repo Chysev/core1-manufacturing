@@ -10,26 +10,26 @@ Authorization: Bearer srvcScrt4o341
 
 
 ### Get Admin Session
-GET http://localhost:5000/api/admin-session
+GET https://backend-core1.jjm-manufacturing.com/api/admin-session
 Content-Type: application/json
 
 
 ### Product Endpoints
 
 # List All Products (with related materials and work orders)
-GET http://localhost:5000/api/products/list
+GET https://backend-core1.jjm-manufacturing.com/api/products/list
 # Content-Type: application/json
 
 ###
 
 # Get a Product by ID
-GET http://localhost:5000/api/product/PRODUCT_ID_HERE
+GET https://backend-core1.jjm-manufacturing.com/api/product/PRODUCT_ID_HERE
 Content-Type: application/json
 
 ###
 
 # Create a New Product (do not include nested fields if empty)
-POST http://localhost:5000/api/product/create
+POST https://backend-core1.jjm-manufacturing.com/api/product/create
 Content-Type: application/json
 
 {
@@ -39,7 +39,7 @@ Content-Type: application/json
 ###
 
 # Update a Product
-PATCH http://localhost:5000/api/product/PRODUCT_ID_HERE
+PATCH https://backend-core1.jjm-manufacturing.com/api/product/PRODUCT_ID_HERE
 Content-Type: application/json
 
 {
@@ -49,25 +49,25 @@ Content-Type: application/json
 ###
 
 # Delete a Product
-DELETE http://localhost:5000/api/product/PRODUCT_ID_HERE
+DELETE https://backend-core1.jjm-manufacturing.com/api/product/PRODUCT_ID_HERE
 Content-Type: application/json
 
 ### Production Schedule Endpoints
 
 # List All Production Schedules
-GET http://localhost:5000/api/prodSched/list
+GET https://backend-core1.jjm-manufacturing.com/api/prodSched/list
 Content-Type: application/json
 
 ###
 
 # Get a Production Schedule by ID
-GET http://localhost:5000/api/prodSched/PROD_SCHED_ID_HERE
+GET https://backend-core1.jjm-manufacturing.com/api/prodSched/PROD_SCHED_ID_HERE
 Content-Type: application/json
 
 ###
 
 # Create a New Production Schedule
-POST http://localhost:5000/api/prodSched/create
+POST https://backend-core1.jjm-manufacturing.com/api/prodSched/create
 Content-Type: application/json
 
 {
@@ -80,7 +80,7 @@ Content-Type: application/json
 ###
 
 # Update a Production Schedule
-PATCH http://localhost:5000/api/prodSched/PROD_SCHED_ID_HERE
+PATCH https://backend-core1.jjm-manufacturing.com/api/prodSched/PROD_SCHED_ID_HERE
 Content-Type: application/json
 
 {
@@ -93,25 +93,25 @@ Content-Type: application/json
 ###
 
 # Delete a Production Schedule
-DELETE http://localhost:5000/api/prodSched/PROD_SCHED_ID_HERE
+DELETE https://backend-core1.jjm-manufacturing.com/api/prodSched/PROD_SCHED_ID_HERE
 Content-Type: application/json
 
 ### Work Order Endpoints
 
 # List All Work Orders
-GET http://localhost:5000/api/workOrders/list
+GET https://backend-core1.jjm-manufacturing.com/api/workOrders/list
 Content-Type: application/json
 
 ###
 
 # Get a Work Order by ID
-GET http://localhost:5000/api/workOrders/WORK_ORDER_ID_HERE
+GET https://backend-core1.jjm-manufacturing.com/api/workOrders/WORK_ORDER_ID_HERE
 Content-Type: application/json
 
 ###
 
 # Create a New Work Order
-POST http://localhost:5000/api/workOrders/create
+POST https://backend-core1.jjm-manufacturing.com/api/workOrders/create
 Content-Type: application/json
 
 {
@@ -126,7 +126,7 @@ Content-Type: application/json
 ###
 
 # Update a Work Order
-PATCH http://localhost:5000/api/workOrders/WORK_ORDER_ID_HERE
+PATCH https://backend-core1.jjm-manufacturing.com/api/workOrders/WORK_ORDER_ID_HERE
 Content-Type: application/json
 
 {
@@ -137,25 +137,25 @@ Content-Type: application/json
 ###
 
 # Delete a Work Order
-DELETE http://localhost:5000/api/workOrders/WORK_ORDER_ID_HERE
+DELETE https://backend-core1.jjm-manufacturing.com/api/workOrders/WORK_ORDER_ID_HERE
 Content-Type: application/json
 
 ### Material Endpoints
 
 # List All Materials
-GET http://localhost:5000/api/materials/list
+GET https://backend-core1.jjm-manufacturing.com/api/materials/list
 Content-Type: application/json
 
 ###
 
 # Get a Material by ID
-GET http://localhost:5000/api/materials/MATERIAL_ID_HERE
+GET https://backend-core1.jjm-manufacturing.com/api/materials/MATERIAL_ID_HERE
 Content-Type: application/json
 
 ###
 
 # Create a New Material
-POST http://localhost:5000/api/materials/create
+POST https://backend-core1.jjm-manufacturing.com/api/materials/create
 Content-Type: application/json
 
 {
@@ -168,7 +168,7 @@ Content-Type: application/json
 ###
 
 # Update a Material
-PATCH http://localhost:5000/api/materials/MATERIAL_ID_HERE
+PATCH https://backend-core1.jjm-manufacturing.com/api/materials/MATERIAL_ID_HERE
 Content-Type: application/json
 
 {
@@ -181,25 +181,25 @@ Content-Type: application/json
 ###
 
 # Delete a Material
-DELETE http://localhost:5000/api/materials/MATERIAL_ID_HERE
+DELETE https://backend-core1.jjm-manufacturing.com/api/materials/MATERIAL_ID_HERE
 Content-Type: application/json
 
 ### Demand Forecast Endpoints
 
 # List All Demand Forecasts
-GET http://localhost:5000/api/forecast/list
+GET https://backend-core1.jjm-manufacturing.com/api/forecast/list
 Content-Type: application/json
 
 ###
 
 # Get a Demand Forecast by ID
-GET http://localhost:5000/api/forecast/FORECAST_ID_HERE
+GET https://backend-core1.jjm-manufacturing.com/api/forecast/FORECAST_ID_HERE
 Content-Type: application/json
 
 ###
 
 # Create a New Demand Forecast
-POST http://localhost:5000/api/forecast/create
+POST https://backend-core1.jjm-manufacturing.com/api/forecast/create
 Content-Type: application/json
 
 {
@@ -210,7 +210,7 @@ Content-Type: application/json
 ###
 
 # Update a Demand Forecast
-PATCH http://localhost:5000/api/forecast/FORECAST_ID_HERE
+PATCH https://backend-core1.jjm-manufacturing.com/api/forecast/FORECAST_ID_HERE
 Content-Type: application/json
 
 {
@@ -221,5 +221,5 @@ Content-Type: application/json
 ###
 
 # Delete a Demand Forecast
-DELETE http://localhost:5000/api/forecast/FORECAST_ID_HERE
+DELETE https://backend-core1.jjm-manufacturing.com/api/forecast/FORECAST_ID_HERE
 Content-Type: application/json
