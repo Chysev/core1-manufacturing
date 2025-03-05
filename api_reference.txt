@@ -1,24 +1,19 @@
-
-
 GET https://backend-admin.jjm-manufacturing.com/api/finance/get
 Content-Type: application/json
 Authorization: Bearer srvcScrt4o341
 
 {
-    "service": "Core 1"
+    "service": "Core 1" // string
 }
-
 
 ### Get Admin Session
 GET https://backend-core1.jjm-manufacturing.com/api/admin-session
 Content-Type: application/json
 
-
 ### Product Endpoints
 
 # List All Products (with related materials and work orders)
 GET https://backend-core1.jjm-manufacturing.com/api/products/list
-# Content-Type: application/json
 
 ###
 
@@ -33,7 +28,7 @@ POST https://backend-core1.jjm-manufacturing.com/api/product/create
 Content-Type: application/json
 
 {
-  "name": "Product A"
+  "name": "Product A" // string
 }
 
 ###
@@ -43,7 +38,7 @@ PATCH https://backend-core1.jjm-manufacturing.com/api/product/PRODUCT_ID_HERE
 Content-Type: application/json
 
 {
-  "name": "Updated Product A"
+  "name": "Updated Product A" // string
 }
 
 ###
@@ -71,10 +66,10 @@ POST https://backend-core1.jjm-manufacturing.com/api/prodSched/create
 Content-Type: application/json
 
 {
-  "status": "ONTIME",
-  "description": "First schedule",
-  "start": "2023-01-01T00:00:00.000Z",
-  "end": "2023-01-02T00:00:00.000Z"
+  "status": "ONTIME", // enum (ONTIME, DELAYED, BEHIND_SCHEDULE)
+  "description": "First schedule", // string (optional)
+  "start": "2023-01-01T00:00:00.000Z", // DateTime
+  "end": "2023-01-02T00:00:00.000Z" // DateTime
 }
 
 ###
@@ -84,10 +79,10 @@ PATCH https://backend-core1.jjm-manufacturing.com/api/prodSched/PROD_SCHED_ID_HE
 Content-Type: application/json
 
 {
-  "status": "DELAYED",
-  "description": "Updated schedule",
-  "start": "2023-01-03T00:00:00.000Z",
-  "end": "2023-01-04T00:00:00.000Z"
+  "status": "DELAYED", // enum
+  "description": "Updated schedule", // string
+  "start": "2023-01-03T00:00:00.000Z", // DateTime
+  "end": "2023-01-04T00:00:00.000Z" // DateTime
 }
 
 ###
@@ -115,12 +110,12 @@ POST https://backend-core1.jjm-manufacturing.com/api/workOrders/create
 Content-Type: application/json
 
 {
-  "productId": "PRODUCT_ID_HERE",
-  "quantity": 100,
-  "status": "IN_PROGRESS",
-  "assignedTo": "Machine B",
-  "deadline": "2025-02-07T00:00:00.000Z",
-  "productionScheduleId": "PROD_SCHED_ID_HERE"
+  "productId": "PRODUCT_ID_HERE", // string (ObjectId)
+  "quantity": 100, // int
+  "status": "IN_PROGRESS", // enum (PENDING, IN_PROGRESS, COMPLETED)
+  "assignedTo": "Machine B", // string
+  "deadline": "2025-02-07T00:00:00.000Z", // DateTime
+  "productionScheduleId": "PROD_SCHED_ID_HERE" // string (ObjectId, optional)
 }
 
 ###
@@ -130,8 +125,8 @@ PATCH https://backend-core1.jjm-manufacturing.com/api/workOrders/WORK_ORDER_ID_H
 Content-Type: application/json
 
 {
-  "status": "COMPLETED",
-  "quantity": 120
+  "status": "COMPLETED", // enum
+  "quantity": 120 // int
 }
 
 ###
@@ -159,10 +154,10 @@ POST https://backend-core1.jjm-manufacturing.com/api/materials/create
 Content-Type: application/json
 
 {
-  "material": "Sodium Hydroxide",
-  "quantity": 1000,
-  "unit": "kg",
-  "price": 50
+  "material": "Sodium Hydroxide", // string
+  "quantity": 1000, // int
+  "unit": "kg", // string
+  "price": 50 // float
 }
 
 ###
@@ -172,10 +167,10 @@ PATCH https://backend-core1.jjm-manufacturing.com/api/materials/MATERIAL_ID_HERE
 Content-Type: application/json
 
 {
-  "material": "Updated Sodium Hydroxide",
-  "quantity": 1200,
-  "unit": "kg",
-  "price": 55
+  "material": "Updated Sodium Hydroxide", // string
+  "quantity": 1200, // int
+  "unit": "kg", // string
+  "price": 55 // float
 }
 
 ###
@@ -203,8 +198,8 @@ POST https://backend-core1.jjm-manufacturing.com/api/forecast/create
 Content-Type: application/json
 
 {
-  "month": "January",
-  "sales": 1000
+  "month": "January", // string
+  "sales": 1000 // int
 }
 
 ###
@@ -214,8 +209,8 @@ PATCH https://backend-core1.jjm-manufacturing.com/api/forecast/FORECAST_ID_HERE
 Content-Type: application/json
 
 {
-  "month": "January",
-  "sales": 1100
+  "month": "January", // string
+  "sales": 1100 // int
 }
 
 ###

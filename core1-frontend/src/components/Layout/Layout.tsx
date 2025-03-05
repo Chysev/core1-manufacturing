@@ -217,9 +217,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         >
           <div className="flex flex-col h-full pt-16">
             <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
-              <h2 className="text-lg font-medium text-gray-900 mb-4">
-                Navigation
-              </h2>
+              <h2 className="text-lg font-medium text-gray-900 mb-4"></h2>
 
               <a
                 href="/dashboard/production"
