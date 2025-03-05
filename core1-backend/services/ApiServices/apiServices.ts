@@ -229,7 +229,11 @@ export const deleteMaterial = async (
 export const getAllWorkOrders = async () => {
   return await prisma.workOrder.findMany({
     include: {
-      product: true,
+      product: {
+        include: {
+          materials: true,
+        },
+      },
       prodSched: true,
     },
   });

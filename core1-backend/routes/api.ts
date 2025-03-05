@@ -5,7 +5,7 @@ import isAuthenticated from '../middleware/isAuthenticated';
 const router: Router = Router();
 
 // Authentication / Account routes
-router.get('/admin-session', isAuthenticated, apiController.AdminToken);
+router.get('/admin-session', i apiController.AdminTokensAuthenticated,);
 router.get('/user-list', apiController.getAccount);
 router.delete('/delete-account', apiController.DeleteAccount);
 router.put('/edit-account-email', apiController.EditAccountEmail);
