@@ -222,7 +222,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               </h2>
 
               <a
-                href="#"
+                href="/dashboard/production"
                 className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
               >
                 <TrendingUpDown className="h-5 w-5 mr-3" />
@@ -230,7 +230,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               </a>
 
               <a
-                href="#"
+                href="/dashboard/demandforecast"
                 className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
               >
                 <CalendarSync className="h-5 w-5 mr-3" />
@@ -238,7 +238,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               </a>
 
               <a
-                href="#"
+                href="/dashboard/products"
                 className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
               >
                 <PackageSearch className="h-5 w-5 mr-3" />
@@ -246,7 +246,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               </a>
 
               <a
-                href="#"
+                href="/dashboard/workorders"
                 className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
               >
                 <ListOrdered className="h-5 w-5 mr-3" />
@@ -254,7 +254,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               </a>
 
               <a
-                href="#"
+                href="/dashboard/billing"
                 className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
               >
                 <ReceiptText className="h-5 w-5 mr-3" />
@@ -262,7 +262,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               </a>
 
               <a
-                href="#"
+                href="/dashboard/account"
                 className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
               >
                 <CircleUser className="h-5 w-5 mr-3" />
