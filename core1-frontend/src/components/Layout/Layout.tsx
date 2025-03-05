@@ -220,14 +220,54 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               <h2 className="text-lg font-medium text-gray-900 mb-4">
                 Navigation
               </h2>
+
               <a
                 href="#"
                 className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
               >
-                <Menu className="h-5 w-5 mr-3" />
-                Home
+                <TrendingUpDown className="h-5 w-5 mr-3" />
+                Demand Forecasting
               </a>
-              {/* Add more nav items as needed */}
+
+              <a
+                href="#"
+                className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+              >
+                <CalendarSync className="h-5 w-5 mr-3" />
+                Production Schedule
+              </a>
+
+              <a
+                href="#"
+                className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+              >
+                <PackageSearch className="h-5 w-5 mr-3" />
+                Products
+              </a>
+
+              <a
+                href="#"
+                className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+              >
+                <ListOrdered className="h-5 w-5 mr-3" />
+                Work Orders
+              </a>
+
+              <a
+                href="#"
+                className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+              >
+                <ReceiptText className="h-5 w-5 mr-3" />
+                Billing
+              </a>
+
+              <a
+                href="#"
+                className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+              >
+                <CircleUser className="h-5 w-5 mr-3" />
+                Accounts
+              </a>
             </nav>
           </div>
         </aside>
