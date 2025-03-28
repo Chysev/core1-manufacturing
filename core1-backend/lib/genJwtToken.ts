@@ -3,6 +3,7 @@ import jwt, { JwtPayload } from 'jsonwebtoken';
 const AccessToken = (account: JwtPayload) => {
   const payload = {
     _id: account.id,
+    name: account.name,
     email: account.email,
     core: account.core,
     role: account.role,

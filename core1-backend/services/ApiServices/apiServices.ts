@@ -3,6 +3,10 @@ import { Request, Response } from '../../types/express-types';
 import prisma from '../../prisma';
 import axios from 'axios';
 import { authToken } from '../../lib/genJwtToken';
+const { GoogleGenerativeAI } = require('@google/generative-ai');
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_SECRET);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 export const AdminTokenService = async (req: Request, res: Response) => {
   if (req.account) {
@@ -328,3 +332,103 @@ export const getAccount = async (req: Request, res: Response) => {
 
   res.status(200).json({ users: response.data });
 };
+
+interface Forecast {
+  month: string;
+  sales: number;
+}
+
+interface MovingAverage {
+  window: number;
+  months: string;
+  average: number;
+}
+
+export const Analysis = async (req: Request, res: Response) => {
+  try {
+    const forecasts: Forecast[] = await prisma.demandForecast.findMany({
+      orderBy: { month: "asc" },
+    });
+
+    const salesData = forecasts.map((f) => f.sales);
+    const months = forecasts.map((f) => f.month);
+    const windowSize = 3;
+
+    const calculateMovingAverages = (data: number[], labels: string[], size: number): MovingAverage[] => {
+      const averages: MovingAverage[] = [];
+      for (let i = 0; i <= data.length - size; i++) {
+        const windowSales = data.slice(i, i + size);
+        const avg = windowSales.reduce((sum, v) => sum + v, 0) / size;
+        const label = labels.slice(i, i + size).join(", ");
+        averages.push({
+          window: i + 1,
+          months: label,
+          average: parseFloat(avg.toFixed(2)),
+        });
+      }
+      return averages;
+    };
+
+    const movingAverages = calculateMovingAverages(salesData, months, windowSize);
+
+    const totalSales = salesData.reduce((sum, val) => sum + val, 0);
+    const averageSales = salesData.length ? parseFloat((totalSales / salesData.length).toFixed(2)) : 0;
+
+    let highestSales: Forecast = { month: "", sales: 0 };
+    let lowestSales: Forecast = { month: "", sales: Number.MAX_SAFE_INTEGER };
+
+    forecasts.forEach((forecast) => {
+      if (forecast.sales > highestSales.sales) highestSales = forecast;
+      if (forecast.sales < lowestSales.sales) lowestSales = forecast;
+    });
+
+    if (forecasts.length === 0) lowestSales = { month: "", sales: 0 };
+
+    let predictedNextMonthSales: number | null = null;
+    if (movingAverages.length > 0) {
+      const lastMovingAverage = movingAverages[movingAverages.length - 1].average;
+      predictedNextMonthSales = parseFloat(lastMovingAverage.toFixed(2));
+    }
+
+    const context = `Sales Data by Month:\n${forecasts
+      .map((f) => `${f.month}: PHP ${f.sales.toLocaleString()}`)
+      .join("\n")}\n\nMoving Averages (Window Size: ${windowSize}):\n${movingAverages
+        .map((m) => `Window ${m.window} (${m.months}): PHP ${m.average.toLocaleString()}`)
+        .join("\n")}`;
+
+    const prompt = `
+You are a sales analyst assistant. Use the context below to generate insights.
+
+Context:
+${context}
+
+Instructions:
+- Provide key trends, peaks and dips in performance.
+- Offer predictions or recommendations if applicable.
+- Keep the tone professional and business-focused.
+- Use PHP as currency.
+`;
+
+    let geminiAnalysis = "";
+    try {
+      const result = await model.generateContent(prompt);
+      geminiAnalysis = result.response?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+    } catch (geminiError) {
+      console.error("Gemini generation error:", geminiError);
+      geminiAnalysis = "Failed to generate AI-powered analysis.";
+    }
+
+    return res.status(200).json({
+      movingAverages,
+      totalSales,
+      averageSales,
+      highestSales,
+      lowestSales,
+      predictedNextMonthSales,
+      analysis: geminiAnalysis,
+    });
+  } catch (error) {
+    console.error("Forecast analysis error:", error);
+    return res.status(500).json({ message: "Failed to generate forecast analysis." });
+  }
+}

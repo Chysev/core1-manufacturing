@@ -17,7 +17,7 @@ export const isAuthenticated = async (navigate: UseNavigateResult<string>) => {
     await useToken();
   } catch (error) {
     // If there is no session
-    navigate({ to: '/auth/login' });
+    navigate({ to: '/' });
     console.error('Error getting session:', error);
   }
 };

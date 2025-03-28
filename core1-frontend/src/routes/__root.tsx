@@ -2,7 +2,6 @@ import { createRoute } from '@tanstack/react-router';
 import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import App from '../pages/App';
 import Login from '../pages/Auth/Login';
 import MasterProduction from '../pages/Dashboard/MasterProduction';
 import { MantineProvider } from '@mantine/core';
@@ -24,19 +23,12 @@ export const rootRoute = createRootRoute({
   ),
 });
 
-const indexRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/',
-  component: App,
-});
 
 const LoginRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/auth/login',
+  path: '/',
   component: Login,
 });
-
-// Dashboard
 
 const MasterProductionRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -75,7 +67,6 @@ const AccountRoute = createRoute({
 });
 
 const routeTree = rootRoute.addChildren([
-  indexRoute,
   LoginRoute,
   BillingRoute,
   AccountRoute,

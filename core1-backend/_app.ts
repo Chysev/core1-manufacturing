@@ -9,6 +9,7 @@ import './utils/envValidator';
 import cookieParser from 'cookie-parser';
 import { Request, Response, NextFunction } from './types/express-types';
 
+
 const app = express();
 
 async function connectPrisma() {
@@ -25,6 +26,8 @@ app.get('/uploads/:imageName', (req, res) => {
   res.sendFile(path.join(imagePath, imageName));
 });
 
+
+
 app.use(helmet());
 app.use(nocache());
 app.use(express.json());
@@ -35,6 +38,7 @@ app.set('views', 'views');
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // app.set("trust proxy", 1) // Uncomment if using http or using a provider
+
 
 app.use(
   cors({

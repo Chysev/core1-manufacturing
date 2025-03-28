@@ -30,6 +30,7 @@ import {
   DeleteAccountService,
   EditAccountEmailService,
   getAccount,
+  Analysis,
 } from '../services/ApiServices/apiServices';
 import { Request, Response } from '../types/express-types';
 import asyncHandler from './asyncHandler';
@@ -108,7 +109,7 @@ const apiController = {
     if (!forecast) {
       return res.status(404).json({ error: 'Forecast Not Found' });
     }
-    return res.status(200).json(forecast);
+    // return res.status(200).json(forecast);
   }),
 
   createForecast: asyncHandler(async (req: Request, res: Response) => {
@@ -246,6 +247,11 @@ const apiController = {
 
   getAccount: asyncHandler(async (req: Request, res: Response) => {
     await getAccount(req, res);
+    // return res.status(200).json({ message: 'Schedule deleted successfully' });
+  }),
+
+  Analysis: asyncHandler(async (req: Request, res: Response) => {
+    await Analysis(req, res);
     // return res.status(200).json({ message: 'Schedule deleted successfully' });
   }),
 };

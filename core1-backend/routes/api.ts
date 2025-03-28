@@ -4,6 +4,8 @@ import isAuthenticated from '../middleware/isAuthenticated';
 
 const router: Router = Router();
 
+router.get('/forecast/analysis', apiController.Analysis);
+
 // Authentication / Account routes
 router.get('/admin-session', isAuthenticated, apiController.AdminToken);
 router.get('/user-list', apiController.getAccount);
@@ -44,5 +46,7 @@ router.post('/forecast/create', apiController.createForecast);
 router.get('/forecast/:id', apiController.getForecastById);
 router.patch('/forecast/:id', apiController.updateForecast);
 router.delete('/forecast/:id', apiController.deleteForecast);
+
+
 
 export default router;
