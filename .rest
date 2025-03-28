@@ -232,3 +232,16 @@ Content-Type: application/json
 # Delete a Demand Forecast
 DELETE http://localhost:5000/api/forecast/FORECAST_ID_HERE
 Content-Type: application/json
+
+
+
+###
+
+POST https://backend-core2.jjm-manufacturing.com/api/auditRequestCore1
+Content-Type: application/json
+
+{
+  "department": "Test",
+  "description": "Test",
+  "task": ["Test"]
+}

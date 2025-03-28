@@ -10,6 +10,7 @@ import Products from '../pages/Dashboard/Products';
 import WorkOrders from '../pages/Dashboard/WorkOrders';
 import Billing from '../pages/Dashboard/Billing';
 import Account from '../pages/Dashboard/Account';
+import AuditRequestsPage from '../pages/Dashboard/Audit';
 
 const queryClient = new QueryClient();
 
@@ -66,7 +67,15 @@ const AccountRoute = createRoute({
   component: Account,
 });
 
+
+const AuditRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/dashboard/audit',
+  component: AuditRequestsPage,
+});
+
 const routeTree = rootRoute.addChildren([
+  AuditRoute,
   LoginRoute,
   BillingRoute,
   AccountRoute,
