@@ -97,7 +97,12 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
       path: '/dashboard/account',
       icon: CircleUser,
     },
-  ];
+    {
+      name: "Audit",
+      path: "/dashboard/audit",
+      icon: TrendingUpDown,
+    }
+  ]; 
 
 
   return (
